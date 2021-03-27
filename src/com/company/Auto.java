@@ -1,0 +1,40 @@
+package com.company;
+
+import java.time.LocalDate;
+
+public class Auto extends Automotor implements VehiculoACombustion{
+    private Combustible tipoCombustible;
+    private Integer litrosCapacidadTanque;
+    private Integer cantidadPuertas;
+
+
+    public Auto(Uso uso, Conductor propietario, Marca marca, String modelo,Combustible tipoCombustible, Integer litrosCapacidadTanque,Integer cantidadPuertas) {
+        super(uso, propietario, marca,modelo );
+        this.tipoCombustible = tipoCombustible;
+        this.litrosCapacidadTanque = litrosCapacidadTanque;
+        this.cantidadPuertas = cantidadPuertas;
+    }
+
+    public Auto(Uso uso, Conductor propietario, LocalDate fechaAlta, String dominio,Marca marca, String modelo, Combustible tipoCombustible, Integer litrosCapacidadTanque,Integer cantidadPuertas) throws DatosDominioException {
+        super(uso, propietario, fechaAlta, dominio,marca ,modelo );
+        this.tipoCombustible = tipoCombustible;
+        this.litrosCapacidadTanque = litrosCapacidadTanque;
+        this.cantidadPuertas = cantidadPuertas;
+    }
+
+
+    @Override
+    public Combustible gettipoCombustible() {
+        return tipoCombustible;
+    }
+
+    @Override
+    public Integer getCapacidadTanque() {
+        return litrosCapacidadTanque;
+    }
+
+    @Override
+    public Integer getAutonomia() {
+        return litrosCapacidadTanque * 15;
+    }
+}
